@@ -1,568 +1,733 @@
-<!DOCTYPE html>
-<html lang="fr">
+<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>
+<h1 class="logo-text">Formation Conformité</h1>
+</div>
+<p class="login-subtitle" data-lang-key="login.subtitle">Plateforme de formation pour professionnels
+    de l'assurance</p>
+</div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Plateforme de formation en conformité pour les employés du secteur des assurances">
-    <title>Formation en Conformité - Portail de Formation</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/enhancements.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-</head>
+<form id="loginForm" class="login-form">
+    <div class="form-group">
+        <label for="email" data-lang-key="login.email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="votre.email@entreprise.com">
+    </div>
 
-<body>
-    <!-- Login Page -->
-    <div id="loginPage" class="page active">
-        <div class="login-container">
-            <div class="login-card">
-                <div class="login-header">
-                    <div class="logo-container">
-                        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" />
+    <div class="form-group">
+        <label for="password" data-lang-key="login.password">Mot de passe</label>
+        <input type="password" id="password" name="password" required placeholder="••••••••">
+    </div>
+
+    <div class="form-options">
+        <label class="checkbox-container">
+            <input type="checkbox" id="rememberMe">
+            <span data-lang-key="login.remember">Se souvenir de moi</span>
+        </label>
+        <a href="#" class="forgot-password" data-lang-key="login.forgot">Mot de passe oublié?</a>
+    </div>
+
+    <button type="submit" class="btn btn-primary btn-large" data-lang-key="login.submit">Se
+        connecter</button>
+</form>
+
+<div class="login-footer">
+    <div class="language-switcher">
+        <button type="button" class="lang-btn active" data-lang="fr">FR</button>
+        <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+</div>
+
+<!-- Demo credentials info -->
+<div class="demo-info">
+    <p><strong>Démo - Administrateur:</strong> admin@demo.com / admin123</p>
+    <p><strong>Démo - Apprenant:</strong> user@demo.com / user123</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Learner Dashboard -->
+<div id="learnerDashboard" class="page">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Formation Conformité</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="#" class="nav-link active" data-page="dashboard" data-lang-key="nav.dashboard">Tableau de
+                bord</a>
+            <a href="#" class="nav-link" data-page="catalog" data-lang-key="nav.catalog">Catalogue</a>
+            <a href="#" class="nav-link" data-page="certificates" data-lang-key="nav.certificates">Certificats</a>
+        </div>
+        <div class="navbar-user">
+            <div class="notification-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <span class="notification-badge">3</span>
+            </div>
+            <div class="user-menu">
+                <div class="user-avatar">U</div>
+                <span class="user-name" id="userName">Utilisateur</span>
+                <button id="logoutBtn" class="btn btn-secondary btn-small"
+                    data-lang-key="nav.logout">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Dashboard View -->
+        <div id="dashboardView" class="view active">
+            <header class="page-header">
+                <h1 data-lang-key="dashboard.welcome">Bienvenue sur votre tableau de bord</h1>
+                <p class="page-subtitle" data-lang-key="dashboard.subtitle">Suivez votre progression et accédez à
+                    vos formations</p>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                            <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
                         </svg>
-                        <h1 class="logo-text">Formation Conformité</h1>
                     </div>
-                    <p class="login-subtitle" data-lang-key="login.subtitle">Plateforme de formation pour professionnels
-                        de l'assurance</p>
-                </div>
-
-                <form id="loginForm" class="login-form">
-                    <div class="form-group">
-                        <label for="email" data-lang-key="login.email">Email</label>
-                        <input type="email" id="email" name="email" required placeholder="votre.email@entreprise.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password" data-lang-key="login.password">Mot de passe</label>
-                        <input type="password" id="password" name="password" required placeholder="••••••••">
-                    </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-container">
-                            <input type="checkbox" id="rememberMe">
-                            <span data-lang-key="login.remember">Se souvenir de moi</span>
-                        </label>
-                        <a href="#" class="forgot-password" data-lang-key="login.forgot">Mot de passe oublié?</a>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary btn-large" data-lang-key="login.submit">Se
-                        connecter</button>
-                </form>
-
-                <div class="login-footer">
-                    <div class="language-switcher">
-                        <button type="button" class="lang-btn active" data-lang="fr">FR</button>
-                        <button type="button" class="lang-btn" data-lang="en">EN</button>
+                    <div class="stat-info">
+                        <h3 data-lang-key="stats.inProgress">En cours</h3>
+                        <p class="stat-number" id="statInProgress">3</p>
                     </div>
                 </div>
 
-                <!-- Demo credentials info -->
-                <div class="demo-info">
-                    <p><strong>Démo - Administrateur:</strong> admin@demo.com / admin123</p>
-                    <p><strong>Démo - Apprenant:</strong> user@demo.com / user123</p>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-success">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                            <polyline points="22 4 12 14.01 9 11.01" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3 data-lang-key="stats.completed">Terminés</h3>
+                        <p class="stat-number" id="statCompleted">12</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-warning">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                            <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                            <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3 data-lang-key="stats.pending">À faire</h3>
+                        <p class="stat-number" id="statPending">5</p>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-info">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3 data-lang-key="stats.certificates">Certificats</h3>
+                        <p class="stat-number" id="statCertificates">12</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <section class="dashboard-section">
+                    <h2 data-lang-key="dashboard.currentModules">Modules en cours</h2>
+                    <div id="currentModules" class="modules-list"></div>
+                </section>
+
+                <section class="dashboard-section">
+                    <h2 data-lang-key="dashboard.notifications">Notifications</h2>
+                    <div id="notificationsList" class="notifications-list"></div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Catalog View -->
+        <div id="catalogView" class="view">
+            <header class="page-header">
+                <h1 data-lang-key="catalog.title">Catalogue de formations</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" />
+                            <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                        <input type="text" id="searchModules" placeholder="Rechercher un module..."
+                            data-lang-key="catalog.search">
+                    </div>
+                    <select id="filterCategory" class="filter-select">
+                        <option value="all" data-lang-key="catalog.allCategories">Toutes les catégories</option>
+                        <option value="gdpr">RGPD</option>
+                        <option value="aml">Lutte anti-blanchiment</option>
+                        <option value="ethics">Éthique</option>
+                        <option value="security">Sécurité</option>
+                    </select>
+                </div>
+            </header>
+
+            <div id="modulesCatalog" class="modules-grid"></div>
+        </div>
+
+        <!-- Certificates View -->
+        <div id="certificatesView" class="view">
+            <header class="page-header">
+                <h1 data-lang-key="certificates.title">Mes certificats</h1>
+                <p class="page-subtitle" data-lang-key="certificates.subtitle">Téléchargez vos attestations de
+                    formation</p>
+            </header>
+
+            <div id="certificatesList" class="certificates-grid"></div>
+        </div>
+    </main>
+</div>
+
+<!-- Admin Dashboard -->
+<div id="adminDashboard" class="page">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Admin - Formation Conformité</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="#" class="nav-link active" data-admin-page="overview" data-lang-key="admin.nav.overview">Vue
+                d'ensemble</a>
+            <a href="#" class="nav-link" data-admin-page="modules" data-lang-key="admin.nav.modules">Modules</a>
+            <a href="#" class="nav-link" data-admin-page="users" data-lang-key="admin.nav.users">Utilisateurs</a>
+            <a href="#" class="nav-link" data-admin-page="reports" data-lang-key="admin.nav.reports">Rapports</a>
+        </div>
+        <div class="navbar-user">
+            <div class="user-menu">
+                <div class="user-avatar admin">A</div>
+                <span class="user-name" id="adminName">Administrateur</span>
+                <button id="adminLogoutBtn" class="btn btn-secondary btn-small"
+                    data-lang-key="nav.logout">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div id="adminOverviewView" class="view active">
+            <header class="page-header">
+                <h1 data-lang-key="admin.overview.title">Vue d'ensemble</h1>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total utilisateurs</h3>
+                        <p class="stat-number">156</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-success">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total modules</h3>
+                        <p class="stat-number">24</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-warning">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Taux de complétion</h3>
+                        <p class="stat-number">78%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-info">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Certificats délivrés</h3>
+                        <p class="stat-number">1,247</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Learner Dashboard -->
-    <div id="learnerDashboard" class="page">
-        <nav class="navbar">
-            <div class="navbar-brand">
-                <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
+        <div id="adminModulesView" class="view">
+            <header class="page-header">
+                <h1>Gestion des modules</h1>
+            </header>
+            <div id="adminModulesList"></div>
+        </div>
+
+        <div id="adminUsersView" class="view">
+            <header class="page-header">
+                <h1>Gestion des utilisateurs</h1>
+            </header>
+            <div id="adminUsersList"></div>
+        </div>
+
+        <div id="adminReportsView" class="view">
+            <header class="page-header">
+                <h1>Rapports et exports</h1>
+            </header>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Rapport de complétion</h3>
+                    <p>Exportez les données de complétion des formations</p>
+                    <button class="btn btn-secondary">Exporter CSV</button>
+                </div>
+                <div class="report-card">
+                    <h3>Rapport des scores</h3>
+                    <p>Exportez les scores des quiz par utilisateur</p>
+                    <button class="btn btn-secondary">Exporter CSV</button>
+                </div>
                 </svg>
-                <span>Formation Conformité</span>
             </div>
-            <div class="navbar-menu">
-                <a href="#" class="nav-link active" data-page="dashboard" data-lang-key="nav.dashboard">Tableau de
-                    bord</a>
-                <a href="#" class="nav-link" data-page="catalog" data-lang-key="nav.catalog">Catalogue</a>
-                <a href="#" class="nav-link" data-page="certificates" data-lang-key="nav.certificates">Certificats</a>
+            <div class="stat-info">
+                <h3 data-lang-key="stats.pending">À faire</h3>
+                <p class="stat-number" id="statPending">5</p>
             </div>
-            <div class="navbar-user">
-                <div class="notification-icon">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <span class="notification-badge">3</span>
-                </div>
-                <div class="user-menu">
-                    <div class="user-avatar">U</div>
-                    <span class="user-name" id="userName">Utilisateur</span>
-                    <button id="logoutBtn" class="btn btn-secondary btn-small"
-                        data-lang-key="nav.logout">Déconnexion</button>
-                </div>
-            </div>
-        </nav>
+        </div>
 
-        <main class="main-content">
-            <!-- Dashboard View -->
-            <div id="dashboardView" class="view active">
-                <header class="page-header">
-                    <h1 data-lang-key="dashboard.welcome">Bienvenue sur votre tableau de bord</h1>
-                    <p class="page-subtitle" data-lang-key="dashboard.subtitle">Suivez votre progression et accédez à
-                        vos formations</p>
-                </header>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-primary">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
-                                <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3 data-lang-key="stats.inProgress">En cours</h3>
-                            <p class="stat-number" id="statInProgress">3</p>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-success">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                                <polyline points="22 4 12 14.01 9 11.01" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3 data-lang-key="stats.completed">Terminés</h3>
-                            <p class="stat-number" id="statCompleted">12</p>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-warning">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
-                                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                                <line x1="12" y1="16" x2="12.01" y2="16" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3 data-lang-key="stats.pending">À faire</h3>
-                            <p class="stat-number" id="statPending">5</p>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-info">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3 data-lang-key="stats.certificates">Certificats</h3>
-                            <p class="stat-number" id="statCertificates">12</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dashboard-grid">
-                    <section class="dashboard-section">
-                        <h2 data-lang-key="dashboard.currentModules">Modules en cours</h2>
-                        <div id="currentModules" class="modules-list"></div>
-                    </section>
-
-                    <section class="dashboard-section">
-                        <h2 data-lang-key="dashboard.notifications">Notifications</h2>
-                        <div id="notificationsList" class="notifications-list"></div>
-                    </section>
-                </div>
-            </div>
-
-            <!-- Catalog View -->
-            <div id="catalogView" class="view">
-                <header class="page-header">
-                    <h1 data-lang-key="catalog.title">Catalogue de formations</h1>
-                    <div class="header-actions">
-                        <div class="search-box">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" />
-                                <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2"
-                                    stroke-linecap="round" />
-                            </svg>
-                            <input type="text" id="searchModules" placeholder="Rechercher un module..."
-                                data-lang-key="catalog.search">
-                        </div>
-                        <select id="filterCategory" class="filter-select">
-                            <option value="all" data-lang-key="catalog.allCategories">Toutes les catégories</option>
-                            <option value="gdpr">RGPD</option>
-                            <option value="aml">Lutte anti-blanchiment</option>
-                            <option value="ethics">Éthique</option>
-                            <option value="security">Sécurité</option>
-                        </select>
-                    </div>
-                </header>
-
-                <div id="modulesCatalog" class="modules-grid"></div>
-            </div>
-
-            <!-- Certificates View -->
-            <div id="certificatesView" class="view">
-                <header class="page-header">
-                    <h1 data-lang-key="certificates.title">Mes certificats</h1>
-                    <p class="page-subtitle" data-lang-key="certificates.subtitle">Téléchargez vos attestations de
-                        formation</p>
-                </header>
-
-                <div id="certificatesList" class="certificates-grid"></div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Admin Dashboard -->
-    <div id="adminDashboard" class="page">
-        <nav class="navbar">
-            <div class="navbar-brand">
-                <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        <div class="stat-card">
+            <div class="stat-icon stat-icon-info">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round" />
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <span>Admin - Formation Conformité</span>
             </div>
-            <div class="navbar-menu">
-                <a href="#" class="nav-link active" data-admin-page="overview" data-lang-key="admin.nav.overview">Vue
-                    d'ensemble</a>
-                <a href="#" class="nav-link" data-admin-page="modules" data-lang-key="admin.nav.modules">Modules</a>
-                <a href="#" class="nav-link" data-admin-page="users" data-lang-key="admin.nav.users">Utilisateurs</a>
-                <a href="#" class="nav-link" data-admin-page="reports" data-lang-key="admin.nav.reports">Rapports</a>
+            <div class="stat-info">
+                <h3 data-lang-key="stats.certificates">Certificats</h3>
+                <p class="stat-number" id="statCertificates">12</p>
             </div>
-            <div class="navbar-user">
-                <div class="user-menu">
-                    <div class="user-avatar admin">A</div>
-                    <span class="user-name" id="adminName">Administrateur</span>
-                    <button id="adminLogoutBtn" class="btn btn-secondary btn-small"
-                        data-lang-key="nav.logout">Déconnexion</button>
+        </div>
+</div>
+
+<div class="dashboard-grid">
+    <section class="dashboard-section">
+        <h2 data-lang-key="dashboard.currentModules">Modules en cours</h2>
+        <div id="currentModules" class="modules-list"></div>
+    </section>
+
+    <section class="dashboard-section">
+        <h2 data-lang-key="dashboard.notifications">Notifications</h2>
+        <div id="notificationsList" class="notifications-list"></div>
+    </section>
+</div>
+</div>
+
+<!-- Catalog View -->
+<div id="catalogView" class="view">
+    <header class="page-header">
+        <h1 data-lang-key="catalog.title">Catalogue de formations</h1>
+        <div class="header-actions">
+            <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" />
+                    <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="text" id="searchModules" placeholder="Rechercher un module..."
+                    data-lang-key="catalog.search">
+            </div>
+            <select id="filterCategory" class="filter-select">
+                <option value="all" data-lang-key="catalog.allCategories">Toutes les catégories</option>
+                <option value="gdpr">RGPD</option>
+                <option value="aml">Lutte anti-blanchiment</option>
+                <option value="ethics">Éthique</option>
+                <option value="security">Sécurité</option>
+            </select>
+        </div>
+    </header>
+
+    <div id="modulesCatalog" class="modules-grid"></div>
+</div>
+
+<!-- Certificates View -->
+<div id="certificatesView" class="view">
+    <header class="page-header">
+        <h1 data-lang-key="certificates.title">Mes certificats</h1>
+        <p class="page-subtitle" data-lang-key="certificates.subtitle">Téléchargez vos attestations de
+            formation</p>
+    </header>
+
+    <div id="certificatesList" class="certificates-grid"></div>
+</div>
+</main>
+</div>
+
+<!-- Admin Dashboard -->
+<div id="adminDashboard" class="page">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Admin - Formation Conformité</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="#" class="nav-link active" data-admin-page="overview" data-lang-key="admin.nav.overview">Vue
+                d'ensemble</a>
+            <a href="#" class="nav-link" data-admin-page="modules" data-lang-key="admin.nav.modules">Modules</a>
+            <a href="#" class="nav-link" data-admin-page="users" data-lang-key="admin.nav.users">Utilisateurs</a>
+            <a href="#" class="nav-link" data-admin-page="reports" data-lang-key="admin.nav.reports">Rapports</a>
+        </div>
+        <div class="navbar-user">
+            <div class="user-menu">
+                <div class="user-avatar admin">A</div>
+                <span class="user-name" id="adminName">Administrateur</span>
+                <button id="adminLogoutBtn" class="btn btn-secondary btn-small"
+                    data-lang-key="nav.logout">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div id="adminOverviewView" class="view active">
+            <header class="page-header">
+                <h1 data-lang-key="admin.overview.title">Vue d'ensemble</h1>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total utilisateurs</h3>
+                        <p class="stat-number">156</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-success">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total modules</h3>
+                        <p class="stat-number">24</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-warning">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Taux de complétion</h3>
+                        <p class="stat-number">78%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-info">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Certificats délivrés</h3>
+                        <p class="stat-number">1,247</p>
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
 
-        <main class="main-content">
-            <div id="adminOverviewView" class="view active">
-                <header class="page-header">
-                    <h1 data-lang-key="admin.overview.title">Vue d'ensemble</h1>
-                </header>
+        <div id="adminModulesView" class="view">
+            <header class="page-header">
+                <h1>Gestion des modules</h1>
+            </header>
+            <div id="adminModulesList"></div>
+        </div>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-primary">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor"
-                                    stroke-width="2" />
-                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total utilisateurs</h3>
-                            <p class="stat-number">156</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-success">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total modules</h3>
-                            <p class="stat-number">24</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-warning">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor"
-                                    stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Taux de complétion</h3>
-                            <p class="stat-number">78%</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-info">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Certificats délivrés</h3>
-                            <p class="stat-number">1,247</p>
-                        </div>
-                    </div>
+        <div id="adminUsersView" class="view">
+            <header class="page-header">
+                <h1>Gestion des utilisateurs</h1>
+            </header>
+            <div id="adminUsersList"></div>
+        </div>
+
+        <div id="adminReportsView" class="view">
+            <header class="page-header">
+                <h1>Rapports et exports</h1>
+            </header>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Rapport de complétion</h3>
+                    <p>Exportez les données de complétion des formations</p>
+                    <button class="btn btn-secondary">Exporter CSV</button>
                 </div>
-            </div>
-
-            <div id="adminModulesView" class="view">
-                <header class="page-header">
-                    <h1>Gestion des modules</h1>
-                </header>
-                <div id="adminModulesList"></div>
-            </div>
-
-            <div id="adminUsersView" class="view">
-                <header class="page-header">
-                    <h1>Gestion des utilisateurs</h1>
-                </header>
-                <div id="adminUsersList"></div>
-            </div>
-
-            <div id="adminReportsView" class="view">
-                <header class="page-header">
-                    <h1>Rapports et exports</h1>
-                </header>
-                <div class="reports-grid">
-                    <div class="report-card">
-                        <h3>Rapport de complétion</h3>
-                        <p>Exportez les données de complétion des formations</p>
-                        <button class="btn btn-secondary">Exporter CSV</button>
-                    </div>
-                    <div class="report-card">
-                        <h3>Rapport des scores</h3>
-                        <p>Exportez les scores des quiz par utilisateur</p>
-                        <button class="btn btn-secondary">Exporter CSV</button>
-                    </div>
-                    </svg>
+                <div class="report-card">
+                    <h3>Rapport des scores</h3>
+                    <p>Exportez les scores des quiz par utilisateur</p>
+                    <button class="btn btn-secondary">Exporter CSV</button>
                 </div>
-                <div class="stat-info">
-                    <h3 data-lang-key="stats.pending">À faire</h3>
-                    <p class="stat-number" id="statPending">5</p>
-                </div>
+                <p>Exportez les scores des quiz par utilisateur</p>
+                <button class="btn btn-secondary">Exporter CSV</button>
             </div>
+            </svg>
+        </div>
+        <div class="stat-info">
+            <h3 data-lang-key="stats.pending">À faire</h3>
+            <p class="stat-number" id="statPending">5</p>
+        </div>
+</div>
 
-            <div class="stat-card">
-                <div class="stat-icon stat-icon-info">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor"
-                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                </div>
-                <div class="stat-info">
-                    <h3 data-lang-key="stats.certificates">Certificats</h3>
-                    <p class="stat-number" id="statCertificates">12</p>
-                </div>
-            </div>
+<div class="stat-card">
+    <div class="stat-icon stat-icon-info">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
     </div>
-
-    <div class="dashboard-grid">
-        <section class="dashboard-section">
-            <h2 data-lang-key="dashboard.currentModules">Modules en cours</h2>
-            <div id="currentModules" class="modules-list"></div>
-        </section>
-
-        <section class="dashboard-section">
-            <h2 data-lang-key="dashboard.notifications">Notifications</h2>
-            <div id="notificationsList" class="notifications-list"></div>
-        </section>
+    <div class="stat-info">
+        <h3 data-lang-key="stats.certificates">Certificats</h3>
+        <p class="stat-number" id="statCertificates">12</p>
     </div>
-    </div>
+</div>
+</div>
 
-    <!-- Catalog View -->
-    <div id="catalogView" class="view">
-        <header class="page-header">
-            <h1 data-lang-key="catalog.title">Catalogue de formations</h1>
-            <div class="header-actions">
-                <div class="search-box">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" />
-                        <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                    <input type="text" id="searchModules" placeholder="Rechercher un module..."
-                        data-lang-key="catalog.search">
-                </div>
-                <select id="filterCategory" class="filter-select">
-                    <option value="all" data-lang-key="catalog.allCategories">Toutes les catégories</option>
-                    <option value="gdpr">RGPD</option>
-                    <option value="aml">Lutte anti-blanchiment</option>
-                    <option value="ethics">Éthique</option>
-                    <option value="security">Sécurité</option>
-                </select>
+<div class="dashboard-grid">
+    <section class="dashboard-section">
+        <h2 data-lang-key="dashboard.currentModules">Modules en cours</h2>
+        <div id="currentModules" class="modules-list"></div>
+    </section>
+
+    <section class="dashboard-section">
+        <h2 data-lang-key="dashboard.notifications">Notifications</h2>
+        <div id="notificationsList" class="notifications-list"></div>
+    </section>
+</div>
+</div>
+
+<!-- Catalog View -->
+<div id="catalogView" class="view">
+    <header class="page-header">
+        <h1 data-lang-key="catalog.title">Catalogue de formations</h1>
+        <div class="header-actions">
+            <div class="search-box">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2" />
+                    <path d="m21 21-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <input type="text" id="searchModules" placeholder="Rechercher un module..."
+                    data-lang-key="catalog.search">
             </div>
-        </header>
+            <select id="filterCategory" class="filter-select">
+                <option value="all" data-lang-key="catalog.allCategories">Toutes les catégories</option>
+                <option value="gdpr">RGPD</option>
+                <option value="aml">Lutte anti-blanchiment</option>
+                <option value="ethics">Éthique</option>
+                <option value="security">Sécurité</option>
+            </select>
+        </div>
+    </header>
 
-        <div id="modulesCatalog" class="modules-grid"></div>
-    </div>
+    <div id="modulesCatalog" class="modules-grid"></div>
+</div>
 
-    <!-- Certificates View -->
-    <div id="certificatesView" class="view">
-        <header class="page-header">
-            <h1 data-lang-key="certificates.title">Mes certificats</h1>
-            <p class="page-subtitle" data-lang-key="certificates.subtitle">Téléchargez vos attestations de
-                formation</p>
-        </header>
+<!-- Certificates View -->
+<div id="certificatesView" class="view">
+    <header class="page-header">
+        <h1 data-lang-key="certificates.title">Mes certificats</h1>
+        <p class="page-subtitle" data-lang-key="certificates.subtitle">Téléchargez vos attestations de
+            formation</p>
+    </header>
 
-        <div id="certificatesList" class="certificates-grid"></div>
-    </div>
+    <div id="certificatesList" class="certificates-grid"></div>
+</div>
+</main>
+</div>
+
+<!-- Admin Dashboard -->
+<div id="adminDashboard" class="page">
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+            <span>Admin - Formation Conformité</span>
+        </div>
+        <div class="navbar-menu">
+            <a href="#" class="nav-link active" data-admin-page="overview" data-lang-key="admin.nav.overview">Vue
+                d'ensemble</a>
+            <a href="#" class="nav-link" data-admin-page="modules" data-lang-key="admin.nav.modules">Modules</a>
+            <a href="#" class="nav-link" data-admin-page="users" data-lang-key="admin.nav.users">Utilisateurs</a>
+            <a href="#" class="nav-link" data-admin-page="reports" data-lang-key="admin.nav.reports">Rapports</a>
+        </div>
+        <div class="navbar-user">
+            <div class="user-menu">
+                <div class="user-avatar admin">A</div>
+                <span class="user-name" id="adminName">Administrateur</span>
+                <button id="adminLogoutBtn" class="btn btn-secondary btn-small"
+                    data-lang-key="nav.logout">Déconnexion</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div id="adminOverviewView" class="view active">
+            <header class="page-header">
+                <h1 data-lang-key="admin.overview.title">Vue d'ensemble</h1>
+            </header>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-primary">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor"
+                                stroke-width="2" />
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total utilisateurs</h3>
+                        <p class="stat-number">156</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-success">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total modules</h3>
+                        <p class="stat-number">24</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-warning">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Taux de complétion</h3>
+                        <p class="stat-number">78%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon stat-icon-info">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" />
+                        </svg>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Certificats délivrés</h3>
+                        <p class="stat-number">1,247</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="adminModulesView" class="view">
+            <header class="page-header">
+                <h1>Gestion des modules</h1>
+            </header>
+            <div id="adminModulesList"></div>
+        </div>
+
+        <div id="adminUsersView" class="view">
+            <header class="page-header">
+                <h1>Gestion des utilisateurs</h1>
+            </header>
+            <div id="adminUsersList"></div>
+        </div>
+
+        <div id="adminReportsView" class="view">
+            <header class="page-header">
+                <h1>Rapports et exports</h1>
+            </header>
+            <div class="reports-grid">
+                <div class="report-card">
+                    <h3>Rapport de complétion</h3>
+                    <p>Exportez les données de complétion des formations</p>
+                    <button class="btn btn-secondary">Exporter CSV</button>
+                </div>
+                <div class="report-card">
+                    <h3>Rapport des scores</h3>
+                    <p>Exportez les scores des quiz par utilisateur</p>
+                    <button class="btn btn-secondary">Exporter CSV</button>
+                </div>
+            </div>
+        </div>
     </main>
-    </div>
+</div>
 
-    <!-- Admin Dashboard -->
-    <div id="adminDashboard" class="page">
-        <nav class="navbar">
-            <div class="navbar-brand">
-                <svg class="logo-icon-small" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-                <span>Admin - Formation Conformité</span>
-            </div>
-            <div class="navbar-menu">
-                <a href="#" class="nav-link active" data-admin-page="overview" data-lang-key="admin.nav.overview">Vue
-                    d'ensemble</a>
-                <a href="#" class="nav-link" data-admin-page="modules" data-lang-key="admin.nav.modules">Modules</a>
-                <a href="#" class="nav-link" data-admin-page="users" data-lang-key="admin.nav.users">Utilisateurs</a>
-                <a href="#" class="nav-link" data-admin-page="reports" data-lang-key="admin.nav.reports">Rapports</a>
-            </div>
-            <div class="navbar-user">
-                <div class="user-menu">
-                    <div class="user-avatar admin">A</div>
-                    <span class="user-name" id="adminName">Administrateur</span>
-                    <button id="adminLogoutBtn" class="btn btn-secondary btn-small"
-                        data-lang-key="nav.logout">Déconnexion</button>
-                </div>
-            </div>
-        </nav>
-
-        <main class="main-content">
-            <div id="adminOverviewView" class="view active">
-                <header class="page-header">
-                    <h1 data-lang-key="admin.overview.title">Vue d'ensemble</h1>
-                </header>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-primary">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor"
-                                    stroke-width="2" />
-                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total utilisateurs</h3>
-                            <p class="stat-number">156</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-success">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Total modules</h3>
-                            <p class="stat-number">24</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-warning">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" stroke="currentColor"
-                                    stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Taux de complétion</h3>
-                            <p class="stat-number">78%</p>
-                        </div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon stat-icon-info">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 11l3 3L22 4" stroke="currentColor" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <h3>Certificats délivrés</h3>
-                            <p class="stat-number">1,247</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="adminModulesView" class="view">
-                <header class="page-header">
-                    <h1>Gestion des modules</h1>
-                </header>
-                <div id="adminModulesList"></div>
-            </div>
-
-            <div id="adminUsersView" class="view">
-                <header class="page-header">
-                    <h1>Gestion des utilisateurs</h1>
-                </header>
-                <div id="adminUsersList"></div>
-            </div>
-
-            <div id="adminReportsView" class="view">
-                <header class="page-header">
-                    <h1>Rapports et exports</h1>
-                </header>
-                <div class="reports-grid">
-                    <div class="report-card">
-                        <h3>Rapport de complétion</h3>
-                        <p>Exportez les données de complétion des formations</p>
-                        <button class="btn btn-secondary">Exporter CSV</button>
-                    </div>
-                    <div class="report-card">
-                        <h3>Rapport des scores</h3>
-                        <p>Exportez les scores des quiz par utilisateur</p>
-                        <button class="btn btn-secondary">Exporter CSV</button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <script src="js/translations.js"></script>
-    <script src="js/data.js"></script>
-    <script src="js/notifications.js"></script>
-    <script src="js/gamification.js"></script>
-    <script src="js/quiz.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/learner.js"></script>
-    <script src="js/admin.js"></script>
-    <script src="js/app.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/data.js"></script>
+<script src="js/courses.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/gamification.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/courseViewer.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/learner.js"></script>
+<script src="js/admin.js"></script>
+<script src="js/app.js"></script>
 </body>
 
 </html>

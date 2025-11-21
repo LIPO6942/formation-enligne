@@ -1,23 +1,21 @@
 @echo off
 echo ========================================
-echo  Formation en Conformite - Lancement
+echo   LANCEMENT DE L'APPLICATION
+echo   Formation en Conformite
 echo ========================================
 echo.
-echo Ouverture de l'application dans votre navigateur...
+echo Ouverture dans votre navigateur...
 echo.
-start "" "index.html"
+echo Identifiants de connexion:
 echo.
-echo L'application devrait s'ouvrir dans votre navigateur par defaut.
+echo APPRENANT:
+echo   Email: apprenant@assurance.fr
+echo   Mot de passe: demo123
 echo.
-echo Identifiants de demonstration:
-echo.
-echo [ADMINISTRATEUR]
-echo Email: admin@demo.com
-echo Mot de passe: admin123
-echo.
-echo [APPRENANT]
-echo Email: user@demo.com
-echo Mot de passe: user123
+echo ADMINISTRATEUR:
+echo   Email: admin@assurance.fr
+echo   Mot de passe: admin123
 echo.
 echo ========================================
+start index.html
 pause
