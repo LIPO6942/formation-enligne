@@ -118,6 +118,7 @@ const certificatesData = [
 ];
 
 const usersData = [
+    // Comptes Apprenants
     {
         id: 1,
         name: 'Utilisateur Démo',
@@ -130,11 +131,63 @@ const usersData = [
     },
     {
         id: 2,
+        name: 'Jean Dupont',
+        email: 'apprenant@assurance.fr',
+        password: 'demo123',
+        role: 'learner',
+        department: 'Assurance Vie',
+        completedModules: 1,
+        inProgressModules: 3
+    },
+    {
+        id: 3,
+        name: 'Marie Martin',
+        email: 'marie.martin@assurance.fr',
+        password: 'demo123',
+        role: 'learner',
+        department: 'Assurance IARD',
+        completedModules: 3,
+        inProgressModules: 1
+    },
+    {
+        id: 4,
+        name: 'Pierre Dubois',
+        email: 'pierre.dubois@assurance.fr',
+        password: 'demo123',
+        role: 'learner',
+        department: 'Gestion des Sinistres',
+        completedModules: 0,
+        inProgressModules: 2
+    },
+    {
+        id: 5,
+        name: 'Sophie Bernard',
+        email: 'sophie.bernard@assurance.fr',
+        password: 'demo123',
+        role: 'learner',
+        department: 'Service Client',
+        completedModules: 4,
+        inProgressModules: 0
+    },
+
+    // Comptes Administrateurs
+    {
+        id: 10,
         name: 'Administrateur',
         email: 'admin@demo.com',
         password: 'admin123',
         role: 'admin',
         department: 'IT',
+        completedModules: 0,
+        inProgressModules: 0
+    },
+    {
+        id: 11,
+        name: 'Admin Assurance',
+        email: 'admin@assurance.fr',
+        password: 'admin123',
+        role: 'admin',
+        department: 'Direction Formation',
         completedModules: 0,
         inProgressModules: 0
     }
